@@ -11,6 +11,8 @@ package Vista;
 public class frmBienvenida extends javax.swing.JFrame {
     
     private frmLoginEmpleado frmLoginEmpleado;
+    private frmLoginCliente frmLoginCliente;
+    private frmRegisterCliente frmRegisterCliente;
 
     /**
      * Creates new form frmInicio
@@ -41,7 +43,6 @@ public class frmBienvenida extends javax.swing.JFrame {
         setTitle("Bienvenido a Telefonia");
         setMaximumSize(new java.awt.Dimension(868, 612));
         setMinimumSize(new java.awt.Dimension(868, 612));
-        setPreferredSize(new java.awt.Dimension(868, 612));
 
         panelBeinvenida1.setBackground(new java.awt.Color(0, 102, 102));
         panelBeinvenida1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
@@ -156,7 +157,7 @@ public class frmBienvenida extends javax.swing.JFrame {
                 .addComponent(labelBienvenidos, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelBienvenidos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -169,7 +170,7 @@ public class frmBienvenida extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelBeinvenida1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 19, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -181,19 +182,38 @@ public class frmBienvenida extends javax.swing.JFrame {
     public void setfrmLoginEmpleado(frmLoginEmpleado frmLoginEmpleado) {
         this.frmLoginEmpleado = frmLoginEmpleado;
     }
+
+    public frmLoginCliente getfrmLoginCliente() {
+        return frmLoginCliente;
+    }
+    public void setfrmLoginCliente(frmLoginCliente frmLoginCliente) {
+        this.frmLoginCliente = frmLoginCliente;
+    }    
+    public frmRegisterCliente getFrmRegisterCliente() {
+        return frmRegisterCliente;
+    }
+    public void setFrmRegisterCliente(frmRegisterCliente frmRegisterCliente) {
+        this.frmRegisterCliente = frmRegisterCliente;
+    }   
   
     private void btnEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadoActionPerformed
         // TODO add your handling code here:
         if (frmLoginEmpleado == null) {
         frmLoginEmpleado = new frmLoginEmpleado();
         frmLoginEmpleado.setfrmBienvenida(this);
-    }
+        }
         frmLoginEmpleado.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnEmpleadoActionPerformed
 
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
         // TODO add your handling code here:
+        if (frmLoginCliente == null) {
+        frmLoginCliente = new frmLoginCliente();
+        frmLoginCliente.setFrmBienvenida(this);
+        }
+        frmLoginCliente.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnClienteActionPerformed
 
     /**

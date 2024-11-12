@@ -12,7 +12,7 @@ package Controlador;
 //Parametros de la base de datos
 public interface ParametroBase {
     public static final String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    public static final String URL = "jdbc:sqlserver://localhost:1433;databaseName=Telefonia;encrypt=true;trustServerCertificate=true";
+    public static final String URL = "jdbc:sqlserver://localhost:1433;databaseName=Telefonia;encrypt=false;trustServerCertificate=true";
     public static final String USER = "sa";
     public static final String PASSWORD = "megapeka884";
     

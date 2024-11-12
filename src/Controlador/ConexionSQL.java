@@ -35,7 +35,7 @@ public class ConexionSQL implements ParametroBase{
         try {
             conn = DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (SQLException e) {
-            System.out.println("Error de conexión: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error en la Conextion: " + e.getMessage());
         }
         return conn;
     }
