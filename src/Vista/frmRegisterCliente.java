@@ -57,6 +57,7 @@ public class frmRegisterCliente extends javax.swing.JFrame {
         txtnumDocumento = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Registro Cliente");
         setMaximumSize(new java.awt.Dimension(868, 612));
         setMinimumSize(new java.awt.Dimension(868, 612));
 

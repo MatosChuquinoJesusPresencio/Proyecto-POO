@@ -41,6 +41,7 @@ public class frmLoginEmpleado extends javax.swing.JFrame {
         btnAtras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login Empleado");
         setMaximumSize(new java.awt.Dimension(868, 612));
         setMinimumSize(new java.awt.Dimension(868, 612));
 

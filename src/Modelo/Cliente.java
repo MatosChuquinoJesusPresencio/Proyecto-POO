@@ -10,8 +10,6 @@ package Modelo;
  */
 public class Cliente extends Usuario{
     private String fechaRegistro;
-    private String tipoDocumento;
-    private int Documento;
     private String Estado;
     
     public Cliente() {}
@@ -21,19 +19,6 @@ public class Cliente extends Usuario{
     }
     public void setFechaRegistro(String fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
-    }
-    public String getTipoDocumento() {
-        return tipoDocumento;
-    }
-    public void setTipoDocumento(String tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
-    }
-
-    public int getDocumento() {
-        return Documento;
-    }
-    public void setDocumento(int Documento) {
-        this.Documento = Documento;
     }
     public String getEstado() {
         return Estado;

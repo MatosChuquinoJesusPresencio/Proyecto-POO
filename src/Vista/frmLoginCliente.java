@@ -45,6 +45,7 @@ public class frmLoginCliente extends javax.swing.JFrame {
         btnCambiarR = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login Cliente");
         setMaximumSize(new java.awt.Dimension(868, 612));
         setMinimumSize(new java.awt.Dimension(868, 612));
 

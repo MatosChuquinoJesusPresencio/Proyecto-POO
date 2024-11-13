@@ -16,6 +16,8 @@ public abstract class Usuario {
     private String Email;
     private String Contrasena;
     private String fechaNacimiento;
+    private String tipoDocumento;
+    private String Documento;
     
     public Usuario(){}
 
@@ -58,7 +60,19 @@ public abstract class Usuario {
     public String getFechaNacimiento() {
         return fechaNacimiento;
     }
-    public void setFecha(String fechaNacimiento) {
+    public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
-    }        
+    }
+    public String getTipoDocumento() {
+        return tipoDocumento;
+    }
+    public void setTipoDocumento(String tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
+    public String getDocumento() {
+        return Documento;
+    }
+    public void setDocumento(String Documento) {
+        this.Documento = Documento;
+    }   
 }
