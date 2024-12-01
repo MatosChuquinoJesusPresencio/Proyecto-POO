@@ -5,6 +5,7 @@
 package Controlador;
 
 import Modelo.Linea;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -175,5 +176,43 @@ public class ControladorLinea {
             JOptionPane.showMessageDialog(null, "Error al obterner el estado de la linea: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE    );
         }
         return estadoPago;
+    }
+    
+    //Metodo para cargar el arrays de lineas del cliente
+    public static ArrayList<Linea> cargarLineasCliente(Connection conexion, String idCliente) {
+        
+        //Instruccion SQL para obtener las lineas con el id del cliente
+        String Consulta = "SELECT idLinea, Telefono, Estado, idPlan, fechaInicioPlan, fechaFinPlan, idCliente " +
+                   "FROM Linea WHERE idCliente = ?";
+        
+        ArrayList<Linea> lineasCliente = new ArrayList<>();
+
+        try (PreparedStatement ps = conexion.prepareStatement(Consulta)) {
+            
+            //Pasamos el parametro a la consulta
+            ps.setString(1, idCliente);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                
+                //Se obtinen los atributos de la linea, se crea el objeto y se almacena en el arrays de lineas               
+                while (rs.next()) {                   
+                    Linea lineaCliente = new Linea(
+                        rs.getInt("idLinea"),
+                        rs.getInt("Telefono"),
+                        rs.getString("Estado"),
+                        rs.getString("idPlan"),
+                        rs.getString("fechaInicioPlan"),
+                        rs.getString("fechaFinPlan"),
+                        rs.getString("idCliente")
+                    );       
+                    
+                lineasCliente.add(lineaCliente);
+                }
+            }            
+        } catch (SQLException e) {
+            System.out.println("Error al cargar las líneas: " + e.getMessage());
+        }
+        
+        return lineasCliente;
     }
 }

@@ -5,11 +5,7 @@
 package Modelo;
 
 import Controlador.ConexionSQL;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.sql.Connection;
-import java.sql.ResultSet;
 
 /**
  *
@@ -38,8 +34,8 @@ public final class Cliente extends Usuario{
             String tipoDocumento, String Documento, String fechaRegistro, String Estado) {
         super(idUusario, Nombre, apellidoP, apellidoM, Email, Contrasena, fechaNacimiento, tipoDocumento, Documento);
         this.fechaRegistro = fechaRegistro;
-        this.Lineas = cargarLineasCliente(ConexionSQL.getConexion());    
-        this.Facturas = cargarFacturasCliente(ConexionSQL.getConexion());
+        this.Lineas = Controlador.ControladorLinea.cargarLineasCliente(ConexionSQL.getConexion(), getIdUusario());
+        this.Facturas = Controlador.ControladorFactura.cargarFacturasCliente(ConexionSQL.getConexion(), getIdUusario());
         this.Estado = Estado;
     }
     
@@ -62,87 +58,11 @@ public final class Cliente extends Usuario{
     public void setLineas(ArrayList<Linea> Lineas) {
         this.Lineas = Lineas;
     }
-
     public ArrayList<Factura> getFacturas() {
         return Facturas;
     }
     public void setFacturas(ArrayList<Factura> Facturas) {
         this.Facturas = Facturas;
-    }
-    
-    //Metodo para cargar el arrays de lineas del cliente
-    public ArrayList<Linea> cargarLineasCliente(Connection conexion) {
-        
-        //Instruccion SQL para obtener las lineas con el id del cliente
-        String Consulta = "SELECT idLinea, Telefono, Estado, idPlan, fechaInicioPlan, fechaFinPlan, idCliente " +
-                   "FROM Linea WHERE idCliente = ?";
-        
-        ArrayList<Linea> lineasCliente = new ArrayList<>();
-
-        try (PreparedStatement ps = conexion.prepareStatement(Consulta)) {
-            
-            //Pasamos el parametro a la consulta
-            ps.setString(1, this.getIdUusario());
-
-            try (ResultSet rs = ps.executeQuery()) {
-                
-                //Se obtinen los atributos de la linea, se crea el objeto y se almacena en el arrays de lineas               
-                while (rs.next()) {                   
-                    Linea lineaCliente = new Linea(
-                        rs.getInt("idLinea"),
-                        rs.getInt("Telefono"),
-                        rs.getString("Estado"),
-                        rs.getString("idPlan"),
-                        rs.getString("fechaInicioPlan"),
-                        rs.getString("fechaFinPlan"),
-                        rs.getString("idCliente")
-                    );       
-                    
-                lineasCliente.add(lineaCliente);
-                }
-            }            
-        } catch (SQLException e) {
-            System.out.println("Error al cargar las líneas: " + e.getMessage());
-        }
-        
-        return lineasCliente;
-    }
-    
-    public ArrayList<Factura> cargarFacturasCliente(Connection conexion) {
-        
-        //Instruccion SQL para obtener las lineas con el id del cliente
-        String Consulta = "SELECT idFactura, idUsuario, fechaEmision, fechaVencimiento, Total, estadoPago, metodoPago " +
-                   "FROM Factura WHERE idUsuario = ?";
-        
-        ArrayList<Factura> facturasCliente = new ArrayList<>();
-
-        try (PreparedStatement ps = conexion.prepareStatement(Consulta)) {
-            
-            //Pasamos el parametro a la consulta
-            ps.setString(1, this.getIdUusario());
-
-            try (ResultSet rs = ps.executeQuery()) {
-                
-                //Se obtinen los atributos de la linea, se crea el objeto y se almacena en el arrays de lineas               
-                while (rs.next()) {                   
-                    Factura factura = new Factura(
-                        rs.getInt("idFactura"),
-                        rs.getString("idUsuario"),
-                        rs.getString("fechaEmision"),
-                        rs.getString("fechaVencimiento"),
-                        rs.getDouble("Total"),
-                        rs.getString("estadoPago"),
-                        rs.getString("metodoPago")
-                    );       
-                    
-                facturasCliente.add(factura);
-                }
-            }            
-        } catch (SQLException e) {
-            System.out.println("Error al cargar las líneas: " + e.getMessage());
-        }
-        
-        return facturasCliente;
     }
     
     //Metodo para hallar el numero de lineas del array del cliente

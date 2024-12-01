@@ -5,6 +5,7 @@
 package Controlador;
 
 import Modelo.Factura;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -192,5 +193,43 @@ public class ControladorFactura {
             JOptionPane.showMessageDialog(null, "Error al obtener el precio: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
         return precio;
+    }
+    
+    //Metodo para obterer un arreglo de facturas
+    public static ArrayList<Factura> cargarFacturasCliente(Connection conexion, String idCliente) {
+        
+        //Instruccion SQL para obtener las lineas con el id del cliente
+        String Consulta = "SELECT idFactura, idUsuario, fechaEmision, fechaVencimiento, Total, estadoPago, metodoPago " +
+                   "FROM Factura WHERE idUsuario = ?";
+        
+        ArrayList<Factura> facturasCliente = new ArrayList<>();
+
+        try (PreparedStatement ps = conexion.prepareStatement(Consulta)) {
+            
+            //Pasamos el parametro a la consulta
+            ps.setString(1, idCliente);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                
+                //Se obtinen los atributos de la linea, se crea el objeto y se almacena en el arrays de lineas               
+                while (rs.next()) {                   
+                    Factura factura = new Factura(
+                        rs.getInt("idFactura"),
+                        rs.getString("idUsuario"),
+                        rs.getString("fechaEmision"),
+                        rs.getString("fechaVencimiento"),
+                        rs.getDouble("Total"),
+                        rs.getString("estadoPago"),
+                        rs.getString("metodoPago")
+                    );       
+                    
+                facturasCliente.add(factura);
+                }
+            }            
+        } catch (SQLException e) {
+            System.out.println("Error al cargar las líneas: " + e.getMessage());
+        }
+        
+        return facturasCliente;
     }
 }
