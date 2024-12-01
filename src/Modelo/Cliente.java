@@ -65,11 +65,6 @@ public final class Cliente extends Usuario{
         this.Facturas = Facturas;
     }
     
-    //Metodo para hallar el numero de lineas del array del cliente
-    public int getNumeroLineas() {
-        return this.Lineas.size();
-    }
-    
     //Override del metodo Bienvenida
     @Override
     public String Bienvenida() {
