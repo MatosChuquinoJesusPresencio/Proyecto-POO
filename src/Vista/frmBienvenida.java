@@ -10,9 +10,9 @@ package Vista;
  */
 public class frmBienvenida extends javax.swing.JFrame {
     
-    private frmLoginEmpleado frmLoginEmpleado;
-    private frmLoginCliente frmLoginCliente;
-    private frmRegisterCliente frmRegisterCliente;
+    //Atributos de frmBienvenida
+    private frmLogin frmLogin;
+    private frmRegister frmRegister;
 
     /**
      * Creates new form frmInicio
@@ -30,191 +30,168 @@ public class frmBienvenida extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelBeinvenida1 = new javax.swing.JPanel();
-        panelBienvenidos2 = new javax.swing.JPanel();
-        labelImgEmpleado = new javax.swing.JLabel();
-        labelImgCliente = new javax.swing.JLabel();
-        btnEmpleado = new javax.swing.JButton();
-        btnCliente = new javax.swing.JButton();
+        pnlBienvenida1 = new javax.swing.JPanel();
+        pnlBienvenida2 = new javax.swing.JPanel();
+        btnAcceder = new javax.swing.JButton();
+        btnRegistrarse = new javax.swing.JButton();
         labelEleccion = new javax.swing.JLabel();
-        labelBienvenidos = new javax.swing.JLabel();
+        imgCliente = new javax.swing.JLabel();
+        labelBienvenida = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bienvenido a Telefonia");
         setMaximumSize(new java.awt.Dimension(868, 612));
         setMinimumSize(new java.awt.Dimension(868, 612));
 
-        panelBeinvenida1.setBackground(new java.awt.Color(0, 102, 102));
-        panelBeinvenida1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
-        panelBeinvenida1.setMaximumSize(new java.awt.Dimension(868, 612));
-        panelBeinvenida1.setMinimumSize(new java.awt.Dimension(868, 612));
-        panelBeinvenida1.setName(""); // NOI18N
+        pnlBienvenida1.setBackground(new java.awt.Color(0, 102, 102));
+        pnlBienvenida1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        pnlBienvenida1.setMaximumSize(new java.awt.Dimension(868, 612));
+        pnlBienvenida1.setMinimumSize(new java.awt.Dimension(868, 612));
+        pnlBienvenida1.setName(""); // NOI18N
 
-        panelBienvenidos2.setMaximumSize(new java.awt.Dimension(660, 440));
-        panelBienvenidos2.setMinimumSize(new java.awt.Dimension(660, 400));
-        panelBienvenidos2.setName("ola"); // NOI18N
-        panelBienvenidos2.setPreferredSize(new java.awt.Dimension(660, 400));
+        pnlBienvenida2.setBackground(new java.awt.Color(255, 255, 255));
+        pnlBienvenida2.setMaximumSize(new java.awt.Dimension(660, 440));
+        pnlBienvenida2.setMinimumSize(new java.awt.Dimension(660, 400));
+        pnlBienvenida2.setName("ola"); // NOI18N
+        pnlBienvenida2.setPreferredSize(new java.awt.Dimension(660, 400));
 
-        labelImgEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Empleado.png"))); // NOI18N
-        labelImgEmpleado.setText("jLabel1");
-        labelImgEmpleado.setMaximumSize(new java.awt.Dimension(200, 200));
-        labelImgEmpleado.setMinimumSize(new java.awt.Dimension(200, 200));
-        labelImgEmpleado.setPreferredSize(new java.awt.Dimension(200, 200));
-
-        labelImgCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Cliente.png"))); // NOI18N
-        labelImgCliente.setText("jLabel2");
-        labelImgCliente.setMaximumSize(new java.awt.Dimension(200, 200));
-        labelImgCliente.setMinimumSize(new java.awt.Dimension(200, 200));
-        labelImgCliente.setPreferredSize(new java.awt.Dimension(200, 200));
-
-        btnEmpleado.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
-        btnEmpleado.setForeground(new java.awt.Color(0, 0, 0));
-        btnEmpleado.setText("Empleado");
-        btnEmpleado.setMaximumSize(new java.awt.Dimension(100, 50));
-        btnEmpleado.setMinimumSize(new java.awt.Dimension(100, 50));
-        btnEmpleado.setPreferredSize(new java.awt.Dimension(100, 50));
-        btnEmpleado.addActionListener(new java.awt.event.ActionListener() {
+        btnAcceder.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        btnAcceder.setForeground(new java.awt.Color(0, 0, 0));
+        btnAcceder.setText("Acceder");
+        btnAcceder.setMaximumSize(new java.awt.Dimension(100, 50));
+        btnAcceder.setMinimumSize(new java.awt.Dimension(100, 50));
+        btnAcceder.setPreferredSize(new java.awt.Dimension(100, 50));
+        btnAcceder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEmpleadoActionPerformed(evt);
+                btnAccederActionPerformed(evt);
             }
         });
 
-        btnCliente.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
-        btnCliente.setForeground(new java.awt.Color(0, 0, 0));
-        btnCliente.setText("Cliente");
-        btnCliente.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrarse.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        btnRegistrarse.setForeground(new java.awt.Color(0, 0, 0));
+        btnRegistrarse.setText("Registrarse");
+        btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClienteActionPerformed(evt);
+                btnRegistrarseActionPerformed(evt);
             }
         });
 
-        labelEleccion.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
+        labelEleccion.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         labelEleccion.setForeground(new java.awt.Color(0, 0, 0));
         labelEleccion.setText("Seleccione una opción a continuación:");
 
-        javax.swing.GroupLayout panelBienvenidos2Layout = new javax.swing.GroupLayout(panelBienvenidos2);
-        panelBienvenidos2.setLayout(panelBienvenidos2Layout);
-        panelBienvenidos2Layout.setHorizontalGroup(
-            panelBienvenidos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBienvenidos2Layout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addComponent(labelImgEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
-                .addComponent(labelImgCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54))
-            .addGroup(panelBienvenidos2Layout.createSequentialGroup()
-                .addGap(106, 106, 106)
-                .addComponent(btnEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+        imgCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Cliente.png"))); // NOI18N
+
+        javax.swing.GroupLayout pnlBienvenida2Layout = new javax.swing.GroupLayout(pnlBienvenida2);
+        pnlBienvenida2.setLayout(pnlBienvenida2Layout);
+        pnlBienvenida2Layout.setHorizontalGroup(
+            pnlBienvenida2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBienvenida2Layout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addComponent(btnAcceder, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69))
-            .addGroup(panelBienvenidos2Layout.createSequentialGroup()
-                .addGap(166, 166, 166)
+                .addComponent(btnRegistrarse)
+                .addGap(65, 65, 65))
+            .addGroup(pnlBienvenida2Layout.createSequentialGroup()
+                .addGap(118, 118, 118)
                 .addComponent(labelEleccion)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(129, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBienvenida2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(imgCliente)
+                .addGap(222, 222, 222))
         );
-        panelBienvenidos2Layout.setVerticalGroup(
-            panelBienvenidos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBienvenidos2Layout.createSequentialGroup()
+        pnlBienvenida2Layout.setVerticalGroup(
+            pnlBienvenida2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBienvenida2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(labelEleccion)
                 .addGap(18, 18, 18)
-                .addGroup(panelBienvenidos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelImgEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelImgCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelBienvenidos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addComponent(imgCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGroup(pnlBienvenida2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAcceder, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44))
         );
 
-        labelImgEmpleado.getAccessibleContext().setAccessibleName("");
+        labelBienvenida.setFont(new java.awt.Font("Arial", 0, 48)); // NOI18N
+        labelBienvenida.setForeground(new java.awt.Color(255, 255, 255));
+        labelBienvenida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelBienvenida.setText("Bienvenido a Telefonia");
 
-        labelBienvenidos.setFont(new java.awt.Font("Tempus Sans ITC", 1, 48)); // NOI18N
-        labelBienvenidos.setForeground(new java.awt.Color(255, 255, 255));
-        labelBienvenidos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelBienvenidos.setText("Bienvenido a Telefonia");
-
-        javax.swing.GroupLayout panelBeinvenida1Layout = new javax.swing.GroupLayout(panelBeinvenida1);
-        panelBeinvenida1.setLayout(panelBeinvenida1Layout);
-        panelBeinvenida1Layout.setHorizontalGroup(
-            panelBeinvenida1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelBeinvenida1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlBienvenida1Layout = new javax.swing.GroupLayout(pnlBienvenida1);
+        pnlBienvenida1.setLayout(pnlBienvenida1Layout);
+        pnlBienvenida1Layout.setHorizontalGroup(
+            pnlBienvenida1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBienvenida1Layout.createSequentialGroup()
                 .addContainerGap(107, Short.MAX_VALUE)
-                .addGroup(panelBeinvenida1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBeinvenida1Layout.createSequentialGroup()
-                        .addComponent(panelBienvenidos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(101, 101, 101))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBeinvenida1Layout.createSequentialGroup()
-                        .addComponent(labelBienvenidos, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(143, 143, 143))))
+                .addComponent(pnlBienvenida2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(101, 101, 101))
+            .addGroup(pnlBienvenida1Layout.createSequentialGroup()
+                .addGap(146, 146, 146)
+                .addComponent(labelBienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        panelBeinvenida1Layout.setVerticalGroup(
-            panelBeinvenida1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelBeinvenida1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(labelBienvenidos, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelBienvenidos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+        pnlBienvenida1Layout.setVerticalGroup(
+            pnlBienvenida1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBienvenida1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(labelBienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(pnlBienvenida2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelBeinvenida1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(pnlBienvenida1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelBeinvenida1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(pnlBienvenida1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public frmLoginEmpleado getfrmLoginEmpleado() {
-        return frmLoginEmpleado;
+    //Metodos getters y setters
+    public frmLogin getFrmLogin() {
+        return frmLogin;
     }
-    public void setfrmLoginEmpleado(frmLoginEmpleado frmLoginEmpleado) {
-        this.frmLoginEmpleado = frmLoginEmpleado;
+    public void setFrmLogin(frmLogin frmLogin) {
+        this.frmLogin = frmLogin;
     }
-
-    public frmLoginCliente getfrmLoginCliente() {
-        return frmLoginCliente;
+    public frmRegister getFrmRegister() {
+        return frmRegister;
     }
-    public void setfrmLoginCliente(frmLoginCliente frmLoginCliente) {
-        this.frmLoginCliente = frmLoginCliente;
-    }    
-    public frmRegisterCliente getFrmRegisterCliente() {
-        return frmRegisterCliente;
+    public void setFrmRegister(frmRegister frmRegister) {
+        this.frmRegister = frmRegister;
     }
-    public void setFrmRegisterCliente(frmRegisterCliente frmRegisterCliente) {
-        this.frmRegisterCliente = frmRegisterCliente;
-    }   
   
-    private void btnEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadoActionPerformed
+    //Boton que abre frmLogin
+    private void btnAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccederActionPerformed
         // TODO add your handling code here:
-        if (frmLoginEmpleado == null) {
-        frmLoginEmpleado = new frmLoginEmpleado();
-        frmLoginEmpleado.setfrmBienvenida(this);
+        if (frmLogin == null) {
+        frmLogin = new frmLogin();
+        frmLogin.setFrmBienvenida(this);
         }
-        frmLoginEmpleado.setVisible(true);
+        frmLogin.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btnEmpleadoActionPerformed
+    }//GEN-LAST:event_btnAccederActionPerformed
 
-    private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
+    //Boton que abre frmRegister
+    private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
         // TODO add your handling code here:
-        if (frmLoginCliente == null) {
-        frmLoginCliente = new frmLoginCliente();
-        frmLoginCliente.setFrmBienvenida(this);
+        if (frmRegister == null) {
+        frmRegister = new frmRegister();
+        frmRegister.setFrmBienvenida(this);
         }
-        frmLoginCliente.setVisible(true);
+        frmRegister.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btnClienteActionPerformed
+    }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,13 +230,12 @@ public class frmBienvenida extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCliente;
-    private javax.swing.JButton btnEmpleado;
-    private javax.swing.JLabel labelBienvenidos;
+    private javax.swing.JButton btnAcceder;
+    private javax.swing.JButton btnRegistrarse;
+    private javax.swing.JLabel imgCliente;
+    private javax.swing.JLabel labelBienvenida;
     private javax.swing.JLabel labelEleccion;
-    private javax.swing.JLabel labelImgCliente;
-    private javax.swing.JLabel labelImgEmpleado;
-    private javax.swing.JPanel panelBeinvenida1;
-    private javax.swing.JPanel panelBienvenidos2;
+    private javax.swing.JPanel pnlBienvenida1;
+    private javax.swing.JPanel pnlBienvenida2;
     // End of variables declaration//GEN-END:variables
 }

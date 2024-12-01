@@ -4,22 +4,24 @@
  */
 package Vista;
 
-import Controlador.ControladorLogin;
+import Controlador.ControladorFormularios;
+import Controlador.ControladorLoginRegister;
 import javax.swing.JOptionPane;
-import Controlador.ValidacionesLogin;
+import Modelo.Cliente;
 
 /**
  *
  * @author megap
  */
-public class frmRegisterCliente extends javax.swing.JFrame {
+public class frmRegister extends javax.swing.JFrame {
     
+    //Atributo del frmRegister
     private frmBienvenida frmBienvenida;
-    private frmLoginCliente frmLoginCliente;
+    
     /**
      * Creates new form frmRegisterCliente
      */
-    public frmRegisterCliente() {
+    public frmRegister() {
         initComponents();
     }
 
@@ -35,8 +37,6 @@ public class frmRegisterCliente extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnAtras = new javax.swing.JButton();
         labelBienvenidaLogin = new javax.swing.JLabel();
-        labelCambiarR = new javax.swing.JLabel();
-        btnCambiarR = new javax.swing.JButton();
         panelLoginCliente1 = new javax.swing.JPanel();
         btnVerificarDatosCliente = new javax.swing.JButton();
         labelContra = new javax.swing.JLabel();
@@ -49,7 +49,7 @@ public class frmRegisterCliente extends javax.swing.JFrame {
         labelContra1 = new javax.swing.JLabel();
         passwordCliente = new javax.swing.JPasswordField();
         labelContra2 = new javax.swing.JLabel();
-        jcbTipDocu = new javax.swing.JComboBox<>();
+        cboTipDocu = new javax.swing.JComboBox<>();
         txtapellidoM = new javax.swing.JTextField();
         txtapellidoP = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
@@ -77,25 +77,13 @@ public class frmRegisterCliente extends javax.swing.JFrame {
             }
         });
 
-        labelBienvenidaLogin.setFont(new java.awt.Font("Tempus Sans ITC", 1, 36)); // NOI18N
+        labelBienvenidaLogin.setFont(new java.awt.Font("Arial", 0, 48)); // NOI18N
         labelBienvenidaLogin.setForeground(new java.awt.Color(255, 255, 255));
         labelBienvenidaLogin.setText("Bienvenido");
 
-        labelCambiarR.setFont(new java.awt.Font("Tempus Sans ITC", 1, 20)); // NOI18N
-        labelCambiarR.setForeground(new java.awt.Color(255, 255, 255));
-        labelCambiarR.setText("¿No eres nuevo?");
-
-        btnCambiarR.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
-        btnCambiarR.setText("Logueate");
-        btnCambiarR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCambiarRActionPerformed(evt);
-            }
-        });
-
         panelLoginCliente1.setPreferredSize(new java.awt.Dimension(557, 414));
 
-        btnVerificarDatosCliente.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
+        btnVerificarDatosCliente.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         btnVerificarDatosCliente.setForeground(new java.awt.Color(0, 0, 0));
         btnVerificarDatosCliente.setText("Ingresar");
         btnVerificarDatosCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -104,11 +92,11 @@ public class frmRegisterCliente extends javax.swing.JFrame {
             }
         });
 
-        labelContra.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
+        labelContra.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         labelContra.setForeground(new java.awt.Color(0, 0, 0));
         labelContra.setText("Contrasena:");
 
-        txtNombre.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
+        txtNombre.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(0, 0, 0));
         txtNombre.setName(""); // NOI18N
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -117,50 +105,50 @@ public class frmRegisterCliente extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Nombres:");
+        jLabel1.setText("Nombre Completo:");
 
-        jLabel3.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Apellido Materno:");
 
-        jLabel4.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Tipo Documento:");
 
-        jLabel5.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Apellido Paterno:");
 
-        jLabel6.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Num. Documento:");
 
-        labelContra1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
+        labelContra1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         labelContra1.setForeground(new java.awt.Color(0, 0, 0));
         labelContra1.setText("Email:");
 
-        passwordCliente.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
+        passwordCliente.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         passwordCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordClienteActionPerformed(evt);
             }
         });
 
-        labelContra2.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
+        labelContra2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         labelContra2.setForeground(new java.awt.Color(0, 0, 0));
         labelContra2.setText("Fecha Nacimimiento:");
 
-        jcbTipDocu.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
-        jcbTipDocu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DNI", "Pasaporte" }));
-        jcbTipDocu.addActionListener(new java.awt.event.ActionListener() {
+        cboTipDocu.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        cboTipDocu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DNI", "Pasaporte" }));
+        cboTipDocu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbTipDocuActionPerformed(evt);
+                cboTipDocuActionPerformed(evt);
             }
         });
 
-        txtapellidoM.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
+        txtapellidoM.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtapellidoM.setForeground(new java.awt.Color(0, 0, 0));
         txtapellidoM.setName(""); // NOI18N
         txtapellidoM.addActionListener(new java.awt.event.ActionListener() {
@@ -169,7 +157,7 @@ public class frmRegisterCliente extends javax.swing.JFrame {
             }
         });
 
-        txtapellidoP.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
+        txtapellidoP.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtapellidoP.setForeground(new java.awt.Color(0, 0, 0));
         txtapellidoP.setName(""); // NOI18N
         txtapellidoP.addActionListener(new java.awt.event.ActionListener() {
@@ -178,7 +166,7 @@ public class frmRegisterCliente extends javax.swing.JFrame {
             }
         });
 
-        txtEmail.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
+        txtEmail.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(0, 0, 0));
         txtEmail.setName(""); // NOI18N
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -187,7 +175,7 @@ public class frmRegisterCliente extends javax.swing.JFrame {
             }
         });
 
-        txtFecha.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
+        txtFecha.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtFecha.setForeground(new java.awt.Color(0, 0, 0));
         txtFecha.setName(""); // NOI18N
         txtFecha.addActionListener(new java.awt.event.ActionListener() {
@@ -196,7 +184,7 @@ public class frmRegisterCliente extends javax.swing.JFrame {
             }
         });
 
-        txtnumDocumento.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
+        txtnumDocumento.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtnumDocumento.setForeground(new java.awt.Color(0, 0, 0));
         txtnumDocumento.setName(""); // NOI18N
         txtnumDocumento.addActionListener(new java.awt.event.ActionListener() {
@@ -220,11 +208,11 @@ public class frmRegisterCliente extends javax.swing.JFrame {
                                 .addComponent(passwordCliente))
                             .addGroup(panelLoginCliente1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addGap(54, 54, 54)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtNombre))
                             .addGroup(panelLoginCliente1Layout.createSequentialGroup()
                                 .addComponent(labelContra1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtEmail))
                             .addGroup(panelLoginCliente1Layout.createSequentialGroup()
                                 .addComponent(labelContra2)
@@ -233,7 +221,7 @@ public class frmRegisterCliente extends javax.swing.JFrame {
                             .addGroup(panelLoginCliente1Layout.createSequentialGroup()
                                 .addGroup(panelLoginCliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
-                                    .addComponent(jcbTipDocu, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(cboTipDocu, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(27, 27, 27)
                                 .addGroup(panelLoginCliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(panelLoginCliente1Layout.createSequentialGroup()
@@ -251,9 +239,9 @@ public class frmRegisterCliente extends javax.swing.JFrame {
                                         .addComponent(jLabel3)
                                         .addGap(0, 0, Short.MAX_VALUE))))))
                     .addGroup(panelLoginCliente1Layout.createSequentialGroup()
-                        .addGap(200, 200, 200)
+                        .addGap(198, 198, 198)
                         .addComponent(btnVerificarDatosCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         panelLoginCliente1Layout.setVerticalGroup(
             panelLoginCliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,38 +249,38 @@ public class frmRegisterCliente extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addGroup(panelLoginCliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelLoginCliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelLoginCliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(8, 8, 8)
                 .addGroup(panelLoginCliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtapellidoP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtapellidoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtapellidoM, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtapellidoP, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelLoginCliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelLoginCliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelLoginCliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jcbTipDocu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtnumDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                    .addComponent(cboTipDocu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtnumDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelLoginCliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelContra1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelLoginCliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwordCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelContra, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelContra, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelLoginCliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelLoginCliente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelContra2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                    .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(btnVerificarDatosCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -300,19 +288,15 @@ public class frmRegisterCliente extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(labelCambiarR)
-                    .addComponent(btnCambiarR))
-                .addGap(29, 29, 29)
-                .addComponent(panelLoginCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(126, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(btnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labelBienvenidaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(304, 304, 304))
+                .addGap(275, 275, 275)
+                .addComponent(labelBienvenidaLogin)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(165, Short.MAX_VALUE)
+                .addComponent(panelLoginCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(146, 146, 146))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -324,17 +308,9 @@ public class frmRegisterCliente extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(labelBienvenidaLogin)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelCambiarR)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCambiarR)
-                        .addGap(128, 128, 128))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(panelLoginCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(34, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelLoginCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -355,96 +331,57 @@ public class frmRegisterCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Metodos setters y getters
     public frmBienvenida getFrmBienvenida() {
         return frmBienvenida;
     }
     public void setFrmBienvenida(frmBienvenida frmBienvenida) {
         this.frmBienvenida = frmBienvenida;
     }
-    public frmLoginCliente getFrmLoginCliente() {
-        return frmLoginCliente;
-    }
-    public void setFrmLoginCliente(frmLoginCliente frmLoginCliente) {
-        this.frmLoginCliente = frmLoginCliente;
-    }
        
+    //Boton que devuelve el frm actual al anterior
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-        // TODO add your handling code here:
-        frmBienvenida.setFrmRegisterCliente(this);
+        if (frmBienvenida == null) {
+        frmBienvenida = new frmBienvenida();
+        frmBienvenida.setFrmRegister(this);
+        }
         frmBienvenida.setVisible(true);
         this.setVisible(false);
-        txtNombre.setText("");
-        txtEmail.setText("");
-        txtFecha.setText("");
-        txtapellidoM.setText("");
-        txtapellidoP.setText("");
-        txtnumDocumento.setText("");
-        passwordCliente.setText("");       
+        ControladorFormularios.limpiarCampos(this.getContentPane(), "");
     }//GEN-LAST:event_btnAtrasActionPerformed
 
-    private void btnCambiarRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarRActionPerformed
-        // TODO add your handling code here:
-        frmLoginCliente.setFrmRegisterCliente(this);
-        frmLoginCliente.setVisible(true);
-        this.setVisible(false);
-        txtNombre.setText("");
-        txtEmail.setText("");
-        txtFecha.setText("");
-        txtapellidoM.setText("");
-        txtapellidoP.setText("");
-        txtnumDocumento.setText("");
-        passwordCliente.setText(""); 
-    }//GEN-LAST:event_btnCambiarRActionPerformed
-
+    //Boton que verifica los datos del registro
     private void btnVerificarDatosClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarDatosClienteActionPerformed
-        // TODO add your handling code here:
         String Nombre = txtNombre.getText();
         String apellidoP = txtapellidoP.getText();
         String apellidoM = txtapellidoM.getText();
-        String numDocumento = txtnumDocumento.getText();
-        String tipoDocumento = jcbTipDocu.getSelectedItem().toString().trim();
-        String fechaNacimiento = txtFecha.getText();
-        String contrasena = new String(passwordCliente.getPassword());
         String Email = txtEmail.getText();
-
-        if (Nombre.isEmpty() || apellidoP.isEmpty() || numDocumento.isEmpty() || 
-            contrasena.isEmpty() || Email.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+        String Contrasena = new String(passwordCliente.getPassword());
+        String fechaNacimiento = txtFecha.getText();
+        String tipoDocumento = cboTipDocu.getSelectedItem().toString().trim();
+        String numDocumento = txtnumDocumento.getText();
         
-        if (!ValidacionesLogin.validarNombre(Nombre)) {
-            JOptionPane.showMessageDialog(this, "Nombre inválido. Debe contener una o dos palabras.", "Error", JOptionPane.ERROR_MESSAGE);
+        if (!Controlador.ControladorLoginRegister.validacionesDatos(Nombre, apellidoP, apellidoM, numDocumento,
+                Contrasena, Email, tipoDocumento, fechaNacimiento)){
             return;
         }
-        if (!ValidacionesLogin.validarApellido(apellidoP)) {
-            JOptionPane.showMessageDialog(this, "Apellido paterno inválido. Debe contener solo una palabra.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        if (!ValidacionesLogin.validarApellido(apellidoM)) {
-            JOptionPane.showMessageDialog(this, "Apellido materno inválido. Debe contener solo una palabra.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        if (!ValidacionesLogin.validarDocumento(numDocumento, tipoDocumento)) {
-            JOptionPane.showMessageDialog(this, "Número de documento inválido para el tipo seleccionado.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        if (!ValidacionesLogin.validarEmail(Email)) {
-            JOptionPane.showMessageDialog(this, "Correo electrónico inválido.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        if (!ValidacionesLogin.validarFechaNacimiento(fechaNacimiento)) {
-            JOptionPane.showMessageDialog(this, "Fecha de nacimiento inválida. Formato correcto: dd/MM/yy.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+   
+        Cliente clienteRegistrado = ControladorLoginRegister.registrarCliente( Nombre, apellidoP, apellidoM, Email, Contrasena, 
+                    fechaNacimiento, tipoDocumento, numDocumento);
 
-        boolean registrado = ControladorLogin.registrarCliente(Nombre, apellidoP, apellidoM, Email, contrasena, fechaNacimiento, tipoDocumento, numDocumento);
-
-        if (registrado) {
+        if (clienteRegistrado != null) {
             JOptionPane.showMessageDialog(this, "Cliente registrado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        
+                frmMenu frmMenuCliente = new frmMenu(clienteRegistrado);
+                frmMenuCliente.setVisible(true);
+                this.dispose();
+                frmBienvenida.dispose();
+                
         } else {
             JOptionPane.showMessageDialog(this, "Error al registrar el cliente", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+        }    
+        
+        ControladorFormularios.limpiarCampos(this.getContentPane(), "");
     }//GEN-LAST:event_btnVerificarDatosClienteActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
@@ -471,9 +408,9 @@ public class frmRegisterCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFechaActionPerformed
 
-    private void jcbTipDocuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTipDocuActionPerformed
+    private void cboTipDocuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboTipDocuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jcbTipDocuActionPerformed
+    }//GEN-LAST:event_cboTipDocuActionPerformed
 
     private void txtnumDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumDocumentoActionPerformed
         // TODO add your handling code here:
@@ -496,37 +433,36 @@ public class frmRegisterCliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmRegisterCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmRegisterCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmRegisterCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmRegisterCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmRegisterCliente().setVisible(true);
+                new frmRegister().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtras;
-    private javax.swing.JButton btnCambiarR;
     private javax.swing.JButton btnVerificarDatosCliente;
+    private javax.swing.JComboBox<String> cboTipDocu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JComboBox<String> jcbTipDocu;
     private javax.swing.JLabel labelBienvenidaLogin;
-    private javax.swing.JLabel labelCambiarR;
     private javax.swing.JLabel labelContra;
     private javax.swing.JLabel labelContra1;
     private javax.swing.JLabel labelContra2;

@@ -9,6 +9,8 @@ package Modelo;
  * @author megap
  */
 public abstract class Usuario {
+    
+    //Atributos del Usuario
     private String idUusario;
     private String Nombre;
     private String apellidoP;
@@ -19,8 +21,21 @@ public abstract class Usuario {
     private String tipoDocumento;
     private String Documento;
     
-    public Usuario(){}
-
+    //Constructor del Usuario
+    public Usuario(String idUusario, String Nombre, String apellidoP, String apellidoM, String Email, 
+            String Contrasena, String fechaNacimiento, String tipoDocumento, String Documento) {
+        this.idUusario = idUusario;
+        this.Nombre = Nombre;
+        this.apellidoP = apellidoP;
+        this.apellidoM = apellidoM;
+        this.Email = Email;
+        this.Contrasena = Contrasena;
+        this.fechaNacimiento = fechaNacimiento;
+        this.tipoDocumento = tipoDocumento;
+        this.Documento = Documento;
+    }
+    
+    //Metodos Getters and Setters
     public String getIdUusario() {
         return idUusario;
     }
@@ -75,4 +90,7 @@ public abstract class Usuario {
     public void setDocumento(String Documento) {
         this.Documento = Documento;
     }   
+    
+    //Metodo abstract para mostrar los datos del cliente en el menu
+    public abstract String Bienvenida();
 }

@@ -9,14 +9,28 @@ package Modelo;
  * @author megap
  */
 public class Linea {
+    
+    //Atributos de la linea
+    private int idLinea;
     private int Telefono;
     private String Estado;
     private String Plan; 
     private String fechaIncioPlan;
     private String fechaFinPlan;
+    private String idUsuario;
     
-    public Linea(){}
-
+    //Constructor de la Linea
+    public Linea(int idLinea, int Telefono, String Estado, String Plan, String fechaIncioPlan, String fechaFinPlan, String idUsuario) {
+        this.idLinea = idLinea;
+        this.Telefono = Telefono;
+        this.Estado = Estado;
+        this.Plan = Plan;
+        this.fechaIncioPlan = fechaIncioPlan;
+        this.fechaFinPlan = fechaFinPlan;
+        this.idUsuario = idUsuario;
+    } 
+    
+    //Metodos Getters and Getters
     public int getTelefono() {
         return Telefono;
     }
@@ -47,4 +61,16 @@ public class Linea {
     public void setFechaFinPlan(String fechaFinPlan) {
         this.fechaFinPlan = fechaFinPlan;
     }   
+    public int getIdLinea() {
+        return idLinea;
+    }
+    public void setIdLinea(int idLinea) {
+        this.idLinea = idLinea;
+    }
+    public String getIdUsuario() {
+        return idUsuario;
+    }
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
+    } 
 }

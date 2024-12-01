@@ -4,12 +4,10 @@
  */
 package Controlador;
 
-import java.sql.Statement;
+import Modelo.ParametroBase;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
-import java.sql.ResultSet;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
@@ -17,26 +15,25 @@ import java.sql.SQLException;
  * @author megap
  */
 public class ConexionSQL implements ParametroBase{
-    public Connection Conexion;
-    public Statement st;
-    public ResultSet rt;
-    public PreparedStatement pst;
     
-    public ConexionSQL(){
+    //Metodo para obtener la conexion a la base de datos
+    public static Connection getConexion() {
+    
+        //Verificar el driver sql
         try{
             Class.forName(DRIVER);
-        } catch (Exception e){           
-            JOptionPane.showMessageDialog(null, "Driver mal instalado: " + e.getMessage());
-        } 
-    }
-    
-    public static Connection getConexion() {
-        Connection conn = null;
-        try {
-            conn = DriverManager.getConnection(URL, USER, PASSWORD);
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error en la Conextion: " + e.getMessage());
+        } catch (ClassNotFoundException e){           
+            JOptionPane.showMessageDialog(null, "Driver mal instalado: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-        return conn;
+        
+        Connection Conexion = null;
+        
+        //Verificar la conexion a sql
+        try {       
+            Conexion = DriverManager.getConnection(URL, USER, PASSWORD);         
+        } catch (SQLException e) {          
+            JOptionPane.showMessageDialog(null, "Error en la Conextion: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);         
+        }
+        return Conexion;
     }
 }
