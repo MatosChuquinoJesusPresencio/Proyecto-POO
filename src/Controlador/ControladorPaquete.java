@@ -6,6 +6,7 @@ package Controlador;
 import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import Modelo.Paquete;
 /**
  *
  * @author megap
@@ -13,26 +14,27 @@ import javax.swing.JOptionPane;
 public class ControladorPaquete {
       
     //Metodo que devuelve un ArrayList de objetos con los atributos del paquete
-    public static ArrayList<Object[]> obtenerDatosPaquetes(){
+    public static ArrayList<Paquete> obtenerDatosPaquetes(){
         
         //Inicializamos el arraylist
-        ArrayList<Object[]> datosPaquetes = new ArrayList<>();
+        ArrayList<Paquete> datosPaquetes = new ArrayList<>();
         
-        String Consulta = "SELECT idPaquete, Descripcion, precioUnitario, duracionDias FROM paqueteAdicional";
+        String Consulta = "SELECT * FROM paqueteAdicional";
         try (PreparedStatement pst = ConexionSQL.getConexion().prepareStatement(Consulta)){
             
             try (ResultSet rs = pst.executeQuery()){
                 while(rs.next()){
-                    //Obtenemos un arreglos
-                    Object[] paquete = {
-                        rs.getInt("idPaquete"),
-                        rs.getString("Descripcion"),
-                        rs.getDouble("precioUnitario"),
-                        rs.getInt("duracionDias")
-                    };
                     
-                    //Guardamos el arreglo en el ArrayList
-                    datosPaquetes.add(paquete);
+                    //Obtenemos los datos del paquete 
+                    int idPaquete = rs.getInt("idPaquete");
+                    String Nombre = rs.getString("Nombre");
+                    String Descripcion = rs.getString("Descripcion");
+                    double precioUnitario = rs.getDouble("precioUnitario");
+                    int duracionDias = rs.getInt("duracionDias");
+                    
+                    //Creamos el objeto paquete y lo guardamos
+                    Paquete Paquete = new Paquete(idPaquete, Nombre, Descripcion, precioUnitario, duracionDias);
+                    datosPaquetes.add(Paquete);
                 }
             }
         } catch (SQLException e){

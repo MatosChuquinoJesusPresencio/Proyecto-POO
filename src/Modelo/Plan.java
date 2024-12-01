@@ -36,25 +36,49 @@ public class Plan {
     public String getIdPlan() {
         return idPlan;
     }
+    public void setIdPlan(String idPlan) {
+        this.idPlan = idPlan;
+    }
     public String getDetalles() {
         return Detalles;
+    }
+    public void setDetalles(String Detalles) {
+        this.Detalles = Detalles;
     }
     public String getTipoPlan() {
         return tipoPlan;
     }
+    public void setTipoPlan(String tipoPlan) {
+        this.tipoPlan = tipoPlan;
+    }
+    public double getPrecio() {
+        return Precio;
+    }
+    public void setPrecio(double Precio) {
+        this.Precio = Precio;
+    }
     public int getDuracionDias() {
         return duracionDias;
+    }
+    public void setDuracionDias(int duracionDias) {
+        this.duracionDias = duracionDias;
     }
     public int getGigas() {
         return Gigas;
     }
+    public void setGigas(int Gigas) {
+        this.Gigas = Gigas;
+    }
     public String getBeneficios() {
         return Beneficios;
     }
+    public void setBeneficios(String Beneficios) {
+        this.Beneficios = Beneficios;
+    }
     public String getApps() {
         return Apps;
-    }   
-    public double getPrecio() {
-        return Precio;
+    }
+    public void setApps(String Apps) {
+        this.Apps = Apps;
     }
 }

@@ -21,7 +21,7 @@ public class ControladorPlan {
     //Metodo para cargar los planes
     public static ArrayList<Plan> cargarPlanes(String Plan) {
         
-        ArrayList<Plan> tipoPlanes = new ArrayList<>(0); 
+        ArrayList<Plan> tipoPlanes = new ArrayList<>(); 
         String consulta = "SELECT idPlan, Detalles, tipoPlan, Precio, duracionDias, Gigas, Beneficios, Apps FROM [Plan] WHERE tipoPlan = ?";
         
         try (Connection conexion = ConexionSQL.getConexion();

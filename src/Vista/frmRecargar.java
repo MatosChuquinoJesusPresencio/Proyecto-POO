@@ -11,6 +11,7 @@ import Modelo.Linea;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import Modelo.Paquete;
 
 /**
  *
@@ -182,25 +183,22 @@ public class frmRecargar extends javax.swing.JFrame {
                         .addComponent(labelCantidad)
                         .addGap(3, 3, 3)
                         .addComponent(comboxCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(labelPlan)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(labelPonerPlan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                .addGap(195, 195, 195)
-                                .addComponent(labelLinea)
-                                .addGap(46, 46, 46)
-                                .addComponent(cbTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                .addGap(135, 135, 135)
-                                .addComponent(labelMostrarPlanes))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                .addGap(266, 266, 266)
-                                .addComponent(btnPagar)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(195, 195, 195)
+                        .addComponent(labelLinea)
+                        .addGap(46, 46, 46)
+                        .addComponent(cbTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGap(135, 135, 135)
+                        .addComponent(labelMostrarPlanes))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGap(266, 266, 266)
+                        .addComponent(btnPagar)))
+                .addGap(84, 84, 84))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -437,12 +435,19 @@ public class frmRecargar extends javax.swing.JFrame {
     }
     
     //Cargar las lineas prepago en cbTelefono
-    public void cargarLineaTabla(ArrayList<Object[]> datos) {
+    public void cargarLineaTabla(ArrayList<Paquete> datos) {
 
         modelo.setRowCount(0);
 
-        for (Object[] fila: datos){
-            modelo.addRow(fila);
+        for (Paquete fila: datos){
+            
+            Object[] row = new Object[5]; 
+            row[0] = fila.getIdPaquete();  
+            row[1] = fila.getDescripcion();
+            row[2] = fila.getPrecioUnitario();
+            row[3] = fila.getDuracionDias();
+
+            modelo.addRow(row);
         }
     }
     
