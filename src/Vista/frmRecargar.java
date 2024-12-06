@@ -25,6 +25,7 @@ public class frmRecargar extends javax.swing.JFrame {
     private Cliente Cliente;
     private ArrayList<Linea> Lineas;
     private frmRecargarLinea frmRecargarLinea;
+    private double costoLinea;
 
     /**
      * Creates new form frmSolicitarLinea
@@ -306,6 +307,7 @@ public class frmRecargar extends javax.swing.JFrame {
         for(Linea linea: Lineas){
             if(linea.getPlan().contains("PRE") && !linea.getEstado().equals("CANCELADA") && !linea.getEstado().contains("EMP")){
                 cbTelefono.addItem(String.valueOf(linea.getTelefono()));
+                this.costoLinea = Controlador.ControladorFactura.obtenerPrecioLinea(linea.getIdLinea());
             }
         }
     }
@@ -351,7 +353,7 @@ public class frmRecargar extends javax.swing.JFrame {
         String selectCombo = (String) comboxCantidad.getSelectedItem();
         int Cantidad = (int) Integer.parseInt(selectCombo);
         int duracion = (int) modelo.getValueAt(row, 3);
-        double Total = Cantidad * precioUnitario;
+        double Total = Cantidad * precioUnitario + this.costoLinea;
         int index = cbTelefono.getSelectedIndex(); 
         int idLinea = 0;
         int Telefono = 0;
