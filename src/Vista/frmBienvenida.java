@@ -118,20 +118,18 @@ public class frmBienvenida extends javax.swing.JFrame {
         labelBienvenida.setFont(new java.awt.Font("Arial", 0, 48)); // NOI18N
         labelBienvenida.setForeground(new java.awt.Color(255, 255, 255));
         labelBienvenida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelBienvenida.setText("Bienvenido a Telefonia");
+        labelBienvenida.setText("Bienvenido a Telefonia TellCall");
 
         javax.swing.GroupLayout pnlBienvenida1Layout = new javax.swing.GroupLayout(pnlBienvenida1);
         pnlBienvenida1.setLayout(pnlBienvenida1Layout);
         pnlBienvenida1Layout.setHorizontalGroup(
             pnlBienvenida1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlBienvenida1Layout.createSequentialGroup()
-                .addContainerGap(107, Short.MAX_VALUE)
-                .addComponent(pnlBienvenida2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBienvenida1Layout.createSequentialGroup()
+                .addContainerGap(97, Short.MAX_VALUE)
+                .addGroup(pnlBienvenida1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labelBienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlBienvenida2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(101, 101, 101))
-            .addGroup(pnlBienvenida1Layout.createSequentialGroup()
-                .addGap(146, 146, 146)
-                .addComponent(labelBienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlBienvenida1Layout.setVerticalGroup(
             pnlBienvenida1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -174,7 +174,7 @@ public class frmMenu extends javax.swing.JFrame {
 
         labelMenu.setFont(new java.awt.Font("Arial", 0, 48)); // NOI18N
         labelMenu.setForeground(new java.awt.Color(255, 255, 255));
-        labelMenu.setText("Menu de Telefonia");
+        labelMenu.setText("Menu de Telefonia TellCall");
 
         javax.swing.GroupLayout panelMenu1Layout = new javax.swing.GroupLayout(panelMenu1);
         panelMenu1.setLayout(panelMenu1Layout);
@@ -183,7 +183,7 @@ public class frmMenu extends javax.swing.JFrame {
             .addGroup(panelMenu1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(201, 201, 201)
+                .addGap(101, 101, 101)
                 .addComponent(labelMenu)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMenu1Layout.createSequentialGroup()
